@@ -11,17 +11,23 @@ stack_t *(*op_func(char *s, stack_t **stack, unsigned int line_number))(stack_t 
 {
 	instruction_t ops[] = {
 		{"push", push},
-		{"pall", pall}
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{NULL, NULL}
 	};
 	char *opcode;
 	int i = 0;
 
-	while (i < 2)
+	while (i < 7)
 	{
-		opcode = (ops[i].opcode);
+		opcode = (ops[i]).opcode;
 		if (strcmp(s, opcode) == 0)
 		{
-			return (*ops[i].f);
+			return (*(ops[i]).f);
 		}
 		i++;
 	}
