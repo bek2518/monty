@@ -6,7 +6,7 @@
  * Return: address of new node
  */
 
-stack_t *push(stack_t **stack)
+stack_t *push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t * new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
@@ -32,7 +32,7 @@ stack_t *push(stack_t **stack)
  * Return: Address of the first node
  */
 
-stack_t *pall(stack_t **stack)
+stack_t *pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	if (*stack == NULL)
 	{

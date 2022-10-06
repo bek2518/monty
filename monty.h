@@ -45,7 +45,7 @@ typedef struct instruction_s
 } instruction_t;
 
 extern int value;
-stack_t *push(stack_t **stack);
-stack_t *pall(stack_t **stack);
+stack_t *push(stack_t **stack, unsigned int line_number __attribute__((unused)));
+stack_t *pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
 
 #endif
