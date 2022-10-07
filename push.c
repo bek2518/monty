@@ -3,7 +3,6 @@
 /**
  * push - pushes an elemet to the stack
  * @stack: pointer to the stack (head)
- * Return: address of new node
  */
 
 void push(stack_t **stack, unsigned int line_number)

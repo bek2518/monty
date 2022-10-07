@@ -113,5 +113,8 @@ void rotr(stack_t **stack, unsigned int line_number);
 bool comment_check(line_t line);
 bool argument_check(char *token);
 void push_check(line_t line, meta_t *meta, char *opcode);
+void parseline(line_t *line, char *buffer);
+void parsefile(FILE *file);
+
 
 #endif
