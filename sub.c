@@ -19,6 +19,8 @@ void sub(stack_t **stack, unsigned int line_number)
 	}
 	difference = (head->next->n) - (head->n);
 	head->next->n = difference;
+	head = head->next;
+	head->prev = NULL;
 	pop(stack, 0);
 }
 
