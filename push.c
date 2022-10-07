@@ -3,11 +3,13 @@
 /**
  * push - pushes an elemet to the stack
  * @stack: pointer to the stack (head)
+ * @line_number: line number
  */
 
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t * new_node = malloc(sizeof(stack_t));
+	stack_t *new_node = malloc(sizeof(stack_t));
+
 	if (stack == NULL)
 	{
 		fprintf(stderr, "L%d: stack not found\n", line_number);
@@ -18,7 +20,7 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free(stack);
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	new_node->n = arg.arg;
 	new_node->prev = NULL;
