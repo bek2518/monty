@@ -10,9 +10,11 @@ void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *head = *stack;
 
-	while (!head)
-		head = head->next;
-	*stack = (*stack)->next;
+	if (!head)
+		return;
+	while ((*stack)->next)
+		*stack = (*stack)->next;
+
 	head->next = (*stack)->prev;
 	(*stack)->prev = NULL;
 	head->next->prev = head;
