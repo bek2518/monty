@@ -7,17 +7,16 @@
  * Return: Address of the first node
  */
 
-stack_t *pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
-        if (*stack == NULL)
-        {
-                return (NULL);
-        }
-        while (*stack != NULL)
-        {
-                printf("%d\n", (*stack)->n);
-                *stack = (*stack)->next;
-        }
-        return (*stack);
+	stack_t *temp;
+
+	temp = *stack;
+
+	while (temp != NULL)
+	{
+		printf("%d\n", temp->n);
+		temp = temp->next;
+	}
 }
 

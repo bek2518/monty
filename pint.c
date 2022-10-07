@@ -6,7 +6,7 @@
  * @line number: line number
  * Return: pointer to the stack
  */
-stack_t *pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -19,5 +19,4 @@ stack_t *pint(stack_t **stack, unsigned int line_number)
 	}
 	else
 		printf("%d\n", temp->n);
-	return (*stack);
 }

@@ -6,7 +6,7 @@
  * @line_number: line number
  * Return: address of the first node
  */
-stack_t *swap(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void swap(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *head;
 	int temp;
@@ -25,5 +25,4 @@ stack_t *swap(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	return (*stack);
 }

@@ -7,7 +7,7 @@
  * Return: The edited stack
  */
 
-stack_t *div_op(stack_t **stack, unsigned int line_num)
+void div_op(stack_t **stack, unsigned int line_num)
 {
 	int result = 0;
 	stack_t *head = *stack;
@@ -28,6 +28,4 @@ stack_t *div_op(stack_t **stack, unsigned int line_num)
 	result = (head->next->n) / (head->n);
 	head->next->n = result;
 	pop(stack, 0);
-
-	return (*stack);
 }

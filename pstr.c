@@ -7,7 +7,7 @@
  * @line_number: line_number
  * Return: pointer to stack
  */
-stack_t *pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *head = *stack;
 
@@ -19,5 +19,4 @@ stack_t *pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		head = head->next;
 	}
 	putchar('\n');
-	return (*stack);
 }

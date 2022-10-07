@@ -6,7 +6,7 @@
  * @line_number: line number
  * Return: pointer to new stack 
  */
-stack_t *mod(stack_t **stack, unsigned int line_number)
+void mod(stack_t **stack, unsigned int line_number)
 {
 	int modulus = 0;
 	stack_t *head = *stack;
@@ -26,5 +26,4 @@ stack_t *mod(stack_t **stack, unsigned int line_number)
 	modulus = (head->next->n) % (head->n);
 	head->next->n = modulus;
 	pop(stack, 0);
-	return (*stack);
 }

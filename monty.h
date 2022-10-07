@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 extern int token;
 
@@ -46,22 +47,71 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-stack_t *push(stack_t **stack, unsigned int line_number);
-stack_t *pall(stack_t **stack, unsigned int line_number);
-stack_t *pint(stack_t **stack, unsigned int line_number);
-stack_t *pop(stack_t **stack, unsigned int line_number);
-stack_t *swap(stack_t **stack, unsigned int line_number);
+/**
+ * struct line - contents of line and corresponding number
+ * @contents: array of tokens read from the line
+ * @number: the line number
+ *
+ * Description: contents of a line and corresponding number
+ */
+typedef struct line
+{
+	unsigned int number;
+	char **content;
+} line_t;
+
+/**
+ * struct stack_s - doubly linked list representation of a stack (or queue)
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct meta_s
+{
+	char *buf;
+	stack_t *stack;
+	FILE *file;
+} meta_t;
+
+/**
+ * struct stack_s - doubly linked list representation of a stack (or queue)
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct arg_s
+{
+	int arg;
+	int flag;
+} arg_t;
+
+extern arg_t arg;
+
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
-void (*op_func(char *opc))(stack_t **stack, unsigned int line_number);
-stack_t *add(stack_t **stack, unsigned int line_number);
-stack_t *sub(stack_t **stack, unsigned int line_number);
-stack_t *nop(stack_t **stack, unsigned int line_number);
-stack_t *mod(stack_t **stack, unsigned int line_number);
-stack_t *div_op(stack_t **stack, unsigned int line_number);
-stack_t *mul_op(stack_t **stack, unsigned int line_number);
-stack_t *pchar(stack_t **stack, unsigned int line_number);
-stack_t *pstr(stack_t **stack, unsigned int line_number);
-stack_t *rotl(stack_t **stack, unsigned int line_number);
-stack_t *rotr(stack_t **stack, unsigned int line_number);
+void (*op_func(line_t line, meta_t *meta))(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void div_op(stack_t **stack, unsigned int line_number);
+void mul_op(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
+bool comment_check(line_t line);
+bool argument_check(char *token);
+void push_check(line_t line, meta_t *meta, char *opcode);
 
 #endif

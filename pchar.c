@@ -6,7 +6,7 @@
  * @line_number: line_number
  * Return: pointer to the stack
  */
-stack_t *pchar(stack_t **stack, unsigned int line_number)
+void pchar(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head = *stack;
 
@@ -22,5 +22,4 @@ stack_t *pchar(stack_t **stack, unsigned int line_number)
 	}
 	putchar(head->n);
 	putchar('\n');
-	return (*stack);
 }

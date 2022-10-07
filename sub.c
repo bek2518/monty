@@ -6,7 +6,7 @@
  * @line_number: line number
  * Return: pointer to new stack 
  */
-stack_t *add(stack_t **stack, unsigned int line_number)
+void sub(stack_t **stack, unsigned int line_number)
 {
         int difference = 0;
         stack_t *head = *stack;
@@ -20,6 +20,5 @@ stack_t *add(stack_t **stack, unsigned int line_number)
         difference = (head->next->n) + (head->n);
         head->next->n = difference;
         pop(stack, 0);
-        return (*stack);
 }
 

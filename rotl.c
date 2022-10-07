@@ -6,7 +6,7 @@
  * @line_number: line number
  * Return: pointer to stack
  */
-stack_t *rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *head = *stack;
 
@@ -18,5 +18,4 @@ stack_t *rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	head->next->prev = head;
 	head = head->next;
 	head->next = NULL;
-	return (*stack);
 }
