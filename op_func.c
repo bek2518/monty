@@ -7,31 +7,36 @@
  * @line_number: line number in the file
  * Return: Pointer to the opcode
  */
-stack_t *(*op_func(char *s, stack_t **stack, unsigned int line_number))(stack_t **stack, unsigned int line_number)
+void (*op_func(char *opc))(stack_t **stack, unsigned int line_number)
 {
-	instruction_t ops[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{NULL, NULL}
-	};
-	char *opcode;
-	int i = 0;
+        instruction_t instruct[] = {
+                {"push", push},
+                {"pall", pall},
+                {"pint", pint},
+                {"pop", pop},
+                {"swap", swap},
+                {"queue", queue},
+                {"stack", stack},
+                {"add", add},
+                {"nop", nop},
+                {"sub", sub},
+                {"mul", mul},
+                {"div", div},
+                {"mod", mod},
+                {"pchar", pchar},
+                {"pstr", pstr},
+                {"rotl", rotl},
+                {"rotr", rotr},
+                {NULL, NULL}
+        };
+        int i;
 
-	while (i < 7)
-	{
-		opcode = (ops[i]).opcode;
-		if (strcmp(s, opcode) == 0)
-		{
-			return (*(ops[i]).f);
-		}
-		i++;
-	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, s);
-	free(stack);
-	exit(EXIT_FAILURE);
+        for (i = 0; instruct[i].opcode; i++)
+        {
+                if (strcmp(instruct[i].opcode, opc) == 0)
+                        break;
+        }
+
+        return (instruct[i].f);
 }
+

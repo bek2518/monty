@@ -10,6 +10,8 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+extern int token;
+
 /**
  *  Data Structures
  */
@@ -44,16 +46,22 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern int value;
-
 stack_t *push(stack_t **stack, unsigned int line_number);
 stack_t *pall(stack_t **stack, unsigned int line_number);
 stack_t *pint(stack_t **stack, unsigned int line_number);
 stack_t *pop(stack_t **stack, unsigned int line_number);
 stack_t *swap(stack_t **stack, unsigned int line_number);
-stack_t *add(stack_t **stack, unsigned int line_number);
-stack_t *nop(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
-stack_t *(*op_func(char *s, stack_t **stack, unsigned int line_number))(stack_t **stack, unsigned int line_number);
+void (*op_func(char *opc))(stack_t **stack, unsigned int line_number);
+stack_t *add(stack_t **stack, unsigned int line_number);
+stack_t *sub(stack_t **stack, unsigned int line_number);
+stack_t *nop(stack_t **stack, unsigned int line_number);
+stack_t *mod(stack_t **stack, unsigned int line_number);
+stack_t *div_op(stack_t **stack, unsigned int line_number);
+stack_t *mul_op(stack_t **stack, unsigned int line_number);
+stack_t *pchar(stack_t **stack, unsigned int line_number);
+stack_t *pstr(stack_t **stack, unsigned int line_number);
+stack_t *rotl(stack_t **stack, unsigned int line_number);
+stack_t *rotr(stack_t **stack, unsigned int line_number);
 
 #endif

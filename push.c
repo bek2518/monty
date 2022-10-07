@@ -15,7 +15,7 @@ stack_t *push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		free(stack);
 		exit (EXIT_FAILURE);
 	}
-	new_node->n = value;
+	new_node->n = token;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 
