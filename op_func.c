@@ -2,12 +2,12 @@
 
 /**
  * op_func - selects correct opcode to run
- * @s: operation passed as argument
+ * @line: contents of line and number
+ * @meta: contains all allocated memory
  * @stack: pointer to the stack
  * @line_number: line number in the file
- * Return: Pointer to the opcode
  */
-void (*op_func(line_t line, meta_t *meta))(stack_t **, unsigned int)
+void (*op_func(line_t line, meta_t *meta))(stack_t **stack, unsigned int line_number)
 {
 	unsigned int i = 0;
 	instruction_t ops[] = {
