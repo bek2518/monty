@@ -9,30 +9,14 @@
 void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *temp;
-
-	temp = *stack;
-
-	if (stack == NULL || *stack == NULL)
-		nop(stack, line_number);
-
-	while (temp)
-	{
-		if (temp->next == NULL)
-			break;
-		temp = temp->next;
-	}
-}
-/**{
-	stack_t *temp;
 	int i, j;
 
-	i = (*stack)->n;
 	temp = *stack;
+	i = (*stack)->n;
 
 	if (stack == NULL || *stack == NULL)
-	{
 		nop(stack, line_number);
-	}
+
 	while (temp)
 	{
 		if (temp->next == NULL)
@@ -42,5 +26,5 @@ void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	j = temp->n;
 	(*stack)->n = j;
 	temp->n = i;
+
 }
-*/
