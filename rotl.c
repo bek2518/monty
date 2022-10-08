@@ -14,8 +14,10 @@ void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	i = (*stack)->n;
 	temp = *stack;
 
-	if (!temp)
+	if (stack == NULL || *stack == NULL)
+	{
 		nop(stack, line_number);
+	}
 	while (temp)
 	{
 		if (temp->next == NULL)
