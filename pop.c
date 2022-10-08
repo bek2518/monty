@@ -3,7 +3,7 @@
 /**
  * pop - removes the top element of the stack
  * @stack: pointer to the stack
- * @line_number - line number
+ * @line_number: line number
  * Return: pointer to the stack
  */
 void pop(stack_t **stack, unsigned int line_number __attribute__((unused)))

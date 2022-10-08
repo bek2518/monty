@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- * mul - adds the top two elements of the stack
+ * mul_op - adds the top two elements of the stack
  * @stack: pointer to the stack
  * @line_number: line number
- * Return: pointer to new stack 
+ * Return: pointer to new stack
  */
 void mul_op(stack_t **stack, unsigned int line_number)
 {

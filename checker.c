@@ -62,6 +62,8 @@ bool argument_check(char *token)
  */
 void push_check(line_t line, meta_t *meta, char *opcode)
 {
+	/**arg_t arg = {0, 0};*/
+
 	if ((strcmp(opcode, "push") == 0) && !argument_check(line.content[1]))
 	{
 		free(line.content);

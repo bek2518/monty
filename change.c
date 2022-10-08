@@ -5,8 +5,11 @@
  * @stack: pinter to stack
  * @line_number: line number
  */
-void push_stack(stack_t **stack __attribute__ ((unused)), unsigned int line_number __attribute__ ((unused)))
+void push_stack(stack_t **stack, unsigned int line_number)
 {
+	(void)stack;
+	(void)line_number;
+
 	arg.flag = 0;
 }
 
@@ -15,8 +18,11 @@ void push_stack(stack_t **stack __attribute__ ((unused)), unsigned int line_numb
  * @stack: pinter to stack
  * @line_number: line number
  */
-void push_queue(stack_t **stack __attribute__ ((unused)), unsigned int line_number __attribute__ ((unused)))
+void push_queue(stack_t **stack, unsigned int line_number)
 {
-        arg.flag = 1;
+	(void)stack;
+	(void)line_number;
+
+	arg.flag = 1;
 }
 
