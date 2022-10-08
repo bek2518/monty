@@ -42,7 +42,7 @@ void (*op_func(line_t line, meta_t *meta))(stack_t **, unsigned int)
 			{
 				if (line.content)
 					free(line.content);
-				return (push);
+				return (qpush);
 			}
 			free(line.content);
 			return (ops[i].f);

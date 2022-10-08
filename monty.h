@@ -115,6 +115,6 @@ bool argument_check(char *token);
 void push_check(line_t line, meta_t *meta, char *opcode);
 void parseline(line_t *line, char *buffer);
 void parsefile(FILE *file);
-
+void qpush(stack_t **stack, unsigned int line_number);
 
 #endif
