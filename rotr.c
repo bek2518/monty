@@ -8,6 +8,10 @@
  */
 void rotr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
+	if (*stack)
+		*stack = (*stack)->prev;
+}
+/**{
 	stack_t *head = *stack;
 
 	while (!head)
@@ -16,4 +20,4 @@ void rotr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	head->next = *stack;
 	head->prev = NULL;
 	(*stack)->prev = head;
-}
+}*/
