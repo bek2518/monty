@@ -8,16 +8,21 @@
  */
 void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
-	stack_t *head = *stack;
+	stack_t *temp;
+	int i, j;
 
-	if (!head)
-		return;
-	while ((*stack)->next)
-		*stack = (*stack)->next;
+	i = (*stack)->n;
+	temp = *stack;
 
-	head->next = (*stack)->prev;
-	(*stack)->prev = NULL;
-	head->next->prev = head;
-	head = head->next;
-	head->next = NULL;
+	if (!temp)
+		nop(stack, line_number);
+	while (temp)
+	{
+		if (temp->next == NULL)
+			break;
+		temp = temp->next;
+	}
+	j = temp->n;
+	(*stack)->n = j;
+	temp->n = i;
 }
