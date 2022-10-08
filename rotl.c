@@ -8,6 +8,10 @@
  */
 void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
+	if (*stack)
+		*stack = (*stack)->next;
+}
+/**{
 	stack_t *temp;
 	int i, j;
 
@@ -28,3 +32,4 @@ void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	(*stack)->n = j;
 	temp->n = i;
 }
+*/
